@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memories-game</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <section id="select-item">
+        <h1>Memories Game</h1>
+        <p>Este es un juego para poner a prueba tu memoria</p>
+        <h2>Elige con qué elementos prefieres jugar</h2>
+        <div>
+            <input type="radio" name="items" id="images">
+            <label class="item-target" for="images">
+            <p>Imágenes</p>
+            <img src="./states/images.jpg" alt="Images">
+            </label>
+            
+            <input type="radio" name="items" id="words">
+            <label class="item-target" for="words">
+            <p>Palabras</p>
+            <img src="./states/words.jpg" alt="=Words">
+            </label>
+        </div>
+        <div>
+            <button id=" button-play">Jugar</button>
+        </div>
+    </section> 
+    
+    <section>
+        <div>
+            <p>Aqui voy a mostrar la tabla de 5 items</p>
+            <img src="https://picsum.photos/200" alt="image1">
+            <img src="https://picsum.photos/200" alt="image2">
+            <img src="https://picsum.photos/200" alt="image3">
+            <img src="https://picsum.photos/200" alt="image4">
+            <img src="https://picsum.photos/200" alt="image5">
+        </div>
+       
+        <button>Emparejar</button>
+        <p>Aqui va el temporizador</p>
+        <p>Aqui oculto los items</p>
+        <p>Mostrar las imagenes en desorden con un input al lado </p>
+            <img src="https://picsum.photos/200" alt="re-image1">
+            <input type="text">
+            <img src="https://picsum.photos/200" alt="re-image2">
+            <input type="text">
+            <img src="https://picsum.photos/200" alt="re-image3">
+            <input type="text">
+            <img src="https://picsum.photos/200" alt="re-image4">
+            <input type="text">
+            <img src="https://picsum.photos/200" alt="re-image5">
+            <input type="text">
+        <button>Validar</button>
+    </section> 
+
+    <div id="final-mesagge">
+        <section>
+            <button>Reiniciar</button>
+        </section>
+    </div>
+
+    
+
+
+    
+    <script src="./script.js"></script> 
+</body>
+</html>
