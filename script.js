@@ -53,6 +53,8 @@ function load() {
 
 // funcion para emparejar 
 function match() {
+  let sectionPlay = document.getElementById('section-play')
+  sectionPlay.style.display = 'none'
   let container = document.getElementById("images-container2");
   let obj
   // Obtener objetos al azar
@@ -102,7 +104,7 @@ function validate() {
   let correctOrder = true;
 
   for (let i = 0; i < inputs.length; i++) {
-    if(arrayCopy[i] != randomObjects[parseInt(inputs[i].value)-1]){
+    if (arrayCopy[i] != randomObjects[parseInt(inputs[i].value) - 1]) {
       correctOrder = false;
       break;
     }
