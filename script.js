@@ -54,18 +54,21 @@ function load() {
 // funcion para emparejar 
 function match() {
   let container = document.getElementById("images-container2");
-  let arrayCopy = []
+  let arrayCopy = [] // Para obtener el nuevo orden
+  let obj
   // Obtener objetos al azar
   for (let i = 0; i < 5; i++) {
     let randomIndex = Math.floor(Math.random() * randomObjects.length);
     if (!arrayCopy.includes(randomIndex)) {
-      let image = document.createElement("img");
-      image.src = "./states/image" + randomObjects[randomIndex] + ".jpeg";
-      console.log(image)
-      // randomObjects.splice(randomIndex, 1);
-      container.appendChild(image);
-      arrayCopy.push(randomIndex)
-
+      if (selectedValue == "images") {
+        obj = document.createElement("img"); // Creamos una elemento de tipo imagen
+        obj.src = "./states/image" + randomObjects[randomIndex] + ".jpeg"; // definimos la ruta de la imagen
+      } else {
+        obj = document.createElement("p"); // Creamos una elemento de tipo p [parrafo]
+        obj.innerHTML = randomObjects[randomIndex] // Pongo la palabra dentro del parrafo
+      }
+      container.appendChild(obj); //Agregamos el al contenedor
+      arrayCopy.push(randomIndex) //Las posiciones del nuevo array
       // Agregar input para indicar el orden correcto
       let input = document.createElement("input");
       input.type = "number";
@@ -75,16 +78,16 @@ function match() {
     }
   }
 
-  // Agregar el temporizador
-  // let timeLeft = 15;
-  // timerId = setInterval(function () {
-  //   timeLeft--;
-  //   document.getElementById("timer-display").innerHTML = timeLeft;
-  //   if (timeLeft <= 0) {
-  //     clearInterval(timerId);
-  //     alert("Se te acabó el tiempo, perdiste.");
-  //   }
-  // }, 1000);
+  //Agregar el temporizador
+  let timeLeft = 15;
+  timerId = setInterval(function () {
+    timeLeft--;
+    document.getElementById("timer-display").innerHTML = timeLeft;
+    if (timeLeft <= 0) {
+      clearInterval(timerId);
+      alert("Se te acabó el tiempo, perdiste.");
+    }
+  }, 1000);
 }
 document.getElementById("button-match").addEventListener("click", match);
 
