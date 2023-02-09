@@ -2,8 +2,10 @@
 // mostrar las imagenes random al presionar el boton jugar. 
 let container = document.getElementById("objects-container");
 let randomObjects
+let arrayCopy = [] // Para obtener el nuevo orden
 let timerId
 let selectedValue;
+let order;
 document.getElementById("button-play").addEventListener("click", function () {
   randomObjects = [];
   container.innerHTML = ""
@@ -49,17 +51,14 @@ function load() {
   }
 }
 
-//let timerId;
-
 // funcion para emparejar 
 function match() {
   let container = document.getElementById("images-container2");
-  let arrayCopy = [] // Para obtener el nuevo orden
   let obj
   // Obtener objetos al azar
   for (let i = 0; i < 5; i++) {
     let randomIndex = Math.floor(Math.random() * randomObjects.length);
-    if (!arrayCopy.includes(randomIndex)) {
+    if (!arrayCopy.includes(randomObjects[randomIndex])) {
       if (selectedValue == "images") {
         obj = document.createElement("img"); // Creamos una elemento de tipo imagen
         obj.src = "./states/image" + randomObjects[randomIndex] + ".jpeg"; // definimos la ruta de la imagen
@@ -68,53 +67,46 @@ function match() {
         obj.innerHTML = randomObjects[randomIndex] // Pongo la palabra dentro del parrafo
       }
       container.appendChild(obj); //Agregamos el al contenedor
-      arrayCopy.push(randomIndex) //Las posiciones del nuevo array
+      arrayCopy.push(randomObjects[randomIndex]) //Las posiciones del nuevo array
       // Agregar input para indicar el orden correcto
       let input = document.createElement("input");
       input.type = "number";
+      input.name = "orden";
       container.appendChild(input);
     } else {
       i--;
     }
+    // container.style.display = 'none'
   }
-
   //Agregar el temporizador
-  let timeLeft = 15;
-  timerId = setInterval(function () {
-    timeLeft--;
-    document.getElementById("timer-display").innerHTML = timeLeft;
-    if (timeLeft <= 0) {
-      clearInterval(timerId);
-      alert("Se te acabó el tiempo, perdiste.");
-    }
-  }, 1000);
+  function timer() {
+    let timeLeft = 20;
+    timerId = setInterval(function () {
+      timeLeft--;
+      document.getElementById("timer-display").innerHTML = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timerId);
+        alert("Se te acabó el tiempo, perdiste.");
+      }
+    }, 1000);
+  }
+  timer();
 }
 document.getElementById("button-match").addEventListener("click", match);
 
-
 // Funcion validar 
-
 function validate() {
   clearInterval(timerId);
-
-  let container = document.getElementById("images-container2");
-  let images = container.getElementsByTagName("img");
-  let inputs = container.getElementsByTagName("input");
-
+  let inputs = document.getElementsByName("orden");
+  console.log(inputs.length);
   let correctOrder = true;
-  for (let i = 0; i < images.length; i++) {
-    if (parseInt(inputs[i].value) !== i) {
+
+  for (let i = 0; i < inputs.length; i++) {
+    if(arrayCopy[i] != randomObjects[parseInt(inputs[i].value)-1]){
       correctOrder = false;
       break;
     }
   }
-
-  console.log("Orden de los inputs: ");
-  for (let i = 0; i < inputs.length; i++) {
-    console.log(inputs[i].value);
-  }
-
-  console.log("Orden correcto: " + correctOrder);
 
   if (correctOrder) {
     alert("Felicidades, acertaste el orden de las imágenes!");
@@ -124,21 +116,6 @@ function validate() {
 };
 document.getElementById("button-validate").addEventListener("click", validate);
 
-/*document.getElementById("button-play").addEventListener("click", function () {
-  let container = document.getElementById("images-container");
-  let images = container.getElementsByTagName("img");
-
-  for (let i = images.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [images[i].src, images[j].src] = [images[j].src, images[i].src];
-  }
-
-  let order = [];
-  for (let i = 0; i < images.length; i++) {
-    order.push(images[i].src);
-  }
-  console.log("El orden de las imágenes después de hacer clic en el botón Jugar es:", order);
-});*/
 
 function reload() {
   location.reload();
