@@ -2,37 +2,33 @@
 // mostrar las imagenes random al presionar el boton jugar. 
 let container = document.getElementById("objects-container");
 let randomObjects
+let timerId
+let selectedValue;
 document.getElementById("button-play").addEventListener("click", function () {
   randomObjects = [];
   container.innerHTML = ""
   let items = document.getElementsByName("items");
-  let selectedValue;
   for (let i = 0; i < items.length; i++) {
     if (items[i].checked) {
       selectedValue = items[i].id;
       break;
     }
   }
-  if (selectedValue === "images") {
-    load("images")
-  } else if (selectedValue === "words") {
-    load("words")
-  }
+  load()
 });
 
-function load(type) {
-  
-  if (type == "images") {
+function load() {
+
+  if (selectedValue == "images") {
     //generar imagenes random
     const n = 14;
-    
     for (let i = 0; i < 5; i++) {
-      let randomNumber = Math.floor(Math.random() * n) + 1;
-      if (!randomObjects.includes(randomNumber)) {
+      let randomImages = Math.floor(Math.random() * n) + 1;
+      if (!randomObjects.includes(randomImages)) {
         let image = document.createElement("img");
-        image.src = "./states/image" + randomNumber + ".jpeg";
+        image.src = "./states/image" + randomImages + ".jpeg";
         container.appendChild(image);
-        randomObjects.push(randomNumber);
+        randomObjects.push(randomImages);
       } else {
         i--;
       }
@@ -53,38 +49,49 @@ function load(type) {
   }
 }
 
-
-// mostrar nuevamente las imagenes en desorden al presionar el boton emparejar. 
-
 //let timerId;
 
+// funcion para emparejar 
 function match() {
-  console.log("hola");
   let container = document.getElementById("images-container2");
+  let arrayCopy = []
+  // Obtener objetos al azar
   for (let i = 0; i < 5; i++) {
     let randomIndex = Math.floor(Math.random() * randomObjects.length);
-    let image = randomObjects[randomIndex];
-    randomObjects.splice(randomIndex, 1);
-    container.appendChild(image);
+    if (!arrayCopy.includes(randomIndex)) {
+      let image = document.createElement("img");
+      image.src = "./states/image" + randomObjects[randomIndex] + ".jpeg";
+      console.log(image)
+      // randomObjects.splice(randomIndex, 1);
+      container.appendChild(image);
+      arrayCopy.push(randomIndex)
 
-    let input = document.createElement("input");
-    input.type = "number";
-    container.appendChild(input);
-  }
-  // agregar el temporizador
-  let timeLeft = 15;
-  timerId = setInterval(function () {
-    timeLeft--;
-    document.getElementById("timer-display").innerHTML = timeLeft;
-    if (timeLeft <= 0) {
-      clearInterval(timerId);
-      alert("Se te acabó el tiempo, perdiste.");
+      // Agregar input para indicar el orden correcto
+      let input = document.createElement("input");
+      input.type = "number";
+      container.appendChild(input);
+    } else {
+      i--;
     }
-  }, 1000);
+  }
+
+  // Agregar el temporizador
+  // let timeLeft = 15;
+  // timerId = setInterval(function () {
+  //   timeLeft--;
+  //   document.getElementById("timer-display").innerHTML = timeLeft;
+  //   if (timeLeft <= 0) {
+  //     clearInterval(timerId);
+  //     alert("Se te acabó el tiempo, perdiste.");
+  //   }
+  // }, 1000);
 }
 document.getElementById("button-match").addEventListener("click", match);
 
-document.getElementById("button-validate").addEventListener("click", function () {
+
+// Funcion validar 
+
+function validate() {
   clearInterval(timerId);
 
   let container = document.getElementById("images-container2");
@@ -111,9 +118,10 @@ document.getElementById("button-validate").addEventListener("click", function ()
   } else {
     alert("Lo siento, no acertaste el orden de las imágenes.");
   }
-});
+};
+document.getElementById("button-validate").addEventListener("click", validate);
 
-document.getElementById("button-play").addEventListener("click", function () {
+/*document.getElementById("button-play").addEventListener("click", function () {
   let container = document.getElementById("images-container");
   let images = container.getElementsByTagName("img");
 
@@ -127,8 +135,11 @@ document.getElementById("button-play").addEventListener("click", function () {
     order.push(images[i].src);
   }
   console.log("El orden de las imágenes después de hacer clic en el botón Jugar es:", order);
-});
+});*/
 
-document.getElementById("button-reset").addEventListener("click", function () {
+function reload() {
   location.reload();
-});
+}
+document.getElementById("button-reset").addEventListener("click", reload);
+
+
