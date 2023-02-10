@@ -1,3 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Quicksand:wght@300;500;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;;
+    background-color: #A6BB8D;
+}
+#select-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    color: #EAE7B1;
+    margin: 5px;
+    padding: 5px;
+    font-size: 48px;
+    margin-bottom: 0;
+}
+.paragraph {
+    text-align: center;
+    margin: 5px;
+    margin-top: 0;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.subtitle {
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    gap: 20px
+}
+
+.item-target {
+    width: 180px;
+    height: 100px;
+    background-color:#EAE7B1;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid  #A6BB8D;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
 .item-target img {
     width: 80px;
+    margin: 5px;
+}
+
+input {
+    display:none;
+}
+
+input:checked + label {
+background-color: #3C6255;
+}
+#button-play {
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #EAE7B1;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#objects-container {
+    width: 180px;
+    margin: 10px;
+    padding: 20PX;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+#objects-container img {
+    margin-right: 10px;
+}
+
+#button-match {
+    flex-direction: center;
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #EAE7B1;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    align-content:center ;
 }
