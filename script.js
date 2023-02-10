@@ -49,7 +49,7 @@ function load() {
     }
   } else {
     // generar palabras random 
-    let text = "Amar Reir felicidad Retos Vivir Viajar Alegría Dormir Comer Hermoso Amigos Postres Desayuno Fiesta Montaña";
+    let text = "Amar Reir Felicidad Retos Vivir Viajar Alegría Dormir Comer Hermoso Amigos Postres Desayuno Fiesta Montaña";
     let someWords = text.split(" ");
     for (let i = 0; i < 5; i++) {
       var randomIndex = Math.floor(Math.random() * someWords.length);
@@ -63,6 +63,7 @@ function load() {
   }
   let sectionEmparejar = document.getElementById("section-match");
   sectionEmparejar.style.display = 'flex';
+  
 }
 
 // funcion para emparejar 
@@ -74,6 +75,9 @@ function match() {
   // Obtener objetos al azar
   for (let i = 0; i < 5; i++) {
     let randomIndex = Math.floor(Math.random() * randomObjects.length);
+    let child_container = document.createElement('div')
+    child_container.className = "item"
+    container.appendChild(child_container);
     if (!arrayCopy.includes(randomObjects[randomIndex])) {
       if (selectedValue == "images") {
         obj = document.createElement("img"); // Creamos una elemento de tipo imagen
@@ -82,13 +86,13 @@ function match() {
         obj = document.createElement("p"); // Creamos una elemento de tipo p [parrafo]
         obj.innerHTML = randomObjects[randomIndex] // Pongo la palabra dentro del parrafo
       }
-      container.appendChild(obj); //Agregamos el al contenedor
+      child_container.appendChild(obj); //Agregamos el al contenedor
       arrayCopy.push(randomObjects[randomIndex]) //Las posiciones del nuevo array
       // Agregar input para indicar el orden correcto
       let input = document.createElement("input");
       input.type = "number";
       input.name = "orden";
-      container.appendChild(input);
+      child_container.appendChild(input);
     } else {
       i--;
     }
@@ -107,6 +111,10 @@ function match() {
     }, 1000);
   }
   timer();
+  let sectionValidar = document.getElementById('section-validate')
+  sectionValidar.style.display = 'flex'
+  let sectionReiniciar = document.getElementById('section-reload')
+  sectionReiniciar.style.display = 'flex' 
 }
 document.getElementById("button-match").addEventListener("click", match);
 
@@ -129,6 +137,7 @@ function validate() {
   } else {
     alert("Lo siento, no acertaste el orden de las imágenes.");
   }
+  
 };
 document.getElementById("button-validate").addEventListener("click", validate);
 
