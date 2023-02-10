@@ -6,9 +6,21 @@ let arrayCopy = [] // Para obtener el nuevo orden
 let timerId
 let selectedValue;
 let order;
-document.getElementById("button-play").addEventListener("click", function () {
+let sectionEmparejar = document.getElementById("section-match");
+sectionEmparejar.style.display = 'none';
+let sectionValidar = document.getElementById('section-validate')
+sectionValidar.style.display = 'none'
+let sectionReiniciar = document.getElementById('section-reload')
+sectionReiniciar.style.display = 'none'
+// let sectionItem = document.getElementById("section-item");
+// sectionItem.style.display = 'none';
+// let sectionEmparejar = document.getElementById("section-match");
+// sectionEmparejar.style.display = 'flex';
+
+function play() {
+
   randomObjects = [];
-  container.innerHTML = ""
+  container.innerHTML = "";
   let items = document.getElementsByName("items");
   for (let i = 0; i < items.length; i++) {
     if (items[i].checked) {
@@ -16,11 +28,11 @@ document.getElementById("button-play").addEventListener("click", function () {
       break;
     }
   }
-  load()
-});
+  load();
+}
+document.getElementById("button-play").addEventListener("click", play);
 
 function load() {
-
   if (selectedValue == "images") {
     //generar imagenes random
     const n = 14;
@@ -49,6 +61,8 @@ function load() {
     }
     container.innerHTML = randomObjects.join(" | ");
   }
+  let sectionEmparejar = document.getElementById("section-match");
+  sectionEmparejar.style.display = 'flex';
 }
 
 // funcion para emparejar 
