@@ -12,6 +12,8 @@ let sectionValidar = document.getElementById('section-validate')
 sectionValidar.style.display = 'none'
 let sectionReiniciar = document.getElementById('section-reload')
 sectionReiniciar.style.display = 'none'
+let sectionTimer = document.getElementById('section-timer')
+sectionTimer.style.display = 'none'
 // let sectionItem = document.getElementById("section-item");
 // sectionItem.style.display = 'none';
 // let sectionEmparejar = document.getElementById("section-match");
@@ -33,38 +35,42 @@ function play() {
 document.getElementById("button-play").addEventListener("click", play);
 
 function load() {
-  if (selectedValue == "images") {
-    //generar imagenes random
-    const n = 14;
-    for (let i = 0; i < 5; i++) {
-      let randomImages = Math.floor(Math.random() * n) + 1;
-      if (!randomObjects.includes(randomImages)) {
-        let image = document.createElement("img");
-        image.src = "./states/image" + randomImages + ".jpeg";
-        container.appendChild(image);
-        randomObjects.push(randomImages);
-      } else {
-        i--;
+  if (selectedValue === "images" || selectedValue === "words") {
+    if (selectedValue == "images") {
+      //generar imagenes random
+      const n = 14;
+      for (let i = 0; i < 5; i++) {
+        let randomImages = Math.floor(Math.random() * n) + 1;
+        if (!randomObjects.includes(randomImages)) {
+          let image = document.createElement("img");
+          image.src = "./states/image" + randomImages + ".jpeg";
+          container.appendChild(image);
+          randomObjects.push(randomImages);
+        } else {
+          i--;
+        }
       }
+    } else {
+      // generar palabras random 
+      let text = "Amar Reir Felicidad Retos Vivir Viajar Alegría Dormir Comer Hermoso Amigos Postres Desayuno Fiesta Montaña";
+      let someWords = text.split(" ");
+      for (let i = 0; i < 5; i++) {
+        var randomIndex = Math.floor(Math.random() * someWords.length);
+        if (!randomObjects.includes(someWords[randomIndex])) {
+          randomObjects.push(someWords[randomIndex]);
+        } else {
+          i--;
+        }
+      }
+      container.innerHTML = randomObjects.join(" | ");
     }
+    let sectionEmparejar = document.getElementById("section-match");
+    sectionEmparejar.style.display = 'flex';
   } else {
-    // generar palabras random 
-    let text = "Amar Reir Felicidad Retos Vivir Viajar Alegría Dormir Comer Hermoso Amigos Postres Desayuno Fiesta Montaña";
-    let someWords = text.split(" ");
-    for (let i = 0; i < 5; i++) {
-      var randomIndex = Math.floor(Math.random() * someWords.length);
-      if (!randomObjects.includes(someWords[randomIndex])) {
-        randomObjects.push(someWords[randomIndex]);
-      } else {
-        i--;
-      }
-    }
-    container.innerHTML = randomObjects.join(" | ");
+    container.innerHTML = "Debes seleccionar un elemento, puede ser imágenes o palabras.";
   }
-  let sectionEmparejar = document.getElementById("section-match");
-  sectionEmparejar.style.display = 'flex';
-  
 }
+
 
 // funcion para emparejar 
 function match() {
@@ -100,19 +106,21 @@ function match() {
   }
   //Agregar el temporizador
   function timer() {
-    let timeLeft = 20;
+    let timeLeft = 15;
     timerId = setInterval(function () {
       timeLeft--;
       document.getElementById("timer-display").innerHTML = timeLeft;
       if (timeLeft <= 0) {
         clearInterval(timerId);
-        alert("Se te acabó el tiempo, perdiste.");
+        document.getElementById("resultado").innerHTML = "Se te acabó el tiempo, ¡Debes ser más rápido!";;
       }
     }, 1000);
   }
   timer();
   let sectionValidar = document.getElementById('section-validate')
   sectionValidar.style.display = 'flex'
+  let sectionTimer = document.getElementById('section-timer')
+  sectionTimer.style.display = 'flex'
   let sectionReiniciar = document.getElementById('section-reload')
   sectionReiniciar.style.display = 'flex' 
 }
@@ -133,11 +141,10 @@ function validate() {
   }
 
   if (correctOrder) {
-    alert("Felicidades, acertaste el orden de las imágenes!");
+    document.getElementById("resultado").innerHTML = "Felicidades, ¡Tienes muy buena memoria!";
   } else {
-    alert("Lo siento, no acertaste el orden de las imágenes.");
+    document.getElementById("resultado").innerHTML = "Lo siento, ¡Necesitas mejorar tu memoria!";
   }
-  
 };
 document.getElementById("button-validate").addEventListener("click", validate);
 

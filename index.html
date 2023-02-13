@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>memories-game</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
     <section id="section-item">
         <h1 class="title">Memories Game</h1>
@@ -15,40 +17,44 @@
         <div class="cards">
             <input type="radio" name="items" id="images">
             <label class="item-target" for="images">
-            <p>Imágenes</p>
-            <img src="./states/images.jpg" alt="Images">
+                <p>Imágenes</p>
+                <img src="./states/images.jpg" alt="Images">
             </label>
-            
+
             <input type="radio" name="items" id="words">
             <label class="item-target" for="words">
-            <p>Palabras</p>
-            <img src="./states/words.jpg" alt="=Words">
+                <p>Palabras</p>
+                <img src="./states/words.jpg" alt="=Words">
             </label>
         </div>
         <div>
             <button id="button-play">Jugar</button>
         </div>
-    </section> 
-    
+    </section>
+
     <section id="section-play">
         <div id="objects-container">
         </div>
+    </section>
+    <section id="section-timer">
+        <p>Te quedan <span id="timer-display"></span> segundos</p>
     </section>
     <section id="section-match">
         <button id="button-match">Emparejar</button>
         <div id="images-container2"></div>
     </section>
-
     <section id="section-validate">
-        <div id="timer-display"></div>
         <button id="button-validate">Validar</button>
-    </section> 
+    </section>
 
-    <div id="final-mesagge">
+    <div id="mensajes">
+        <div id="resultado"></div>
         <section id="section-reload">
             <button id="button-reset">Reiniciar</button>
         </section>
     </div>
-    <script src="./script.js"></script> 
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
