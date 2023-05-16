@@ -2,10 +2,8 @@
 
 This is my first project to evaluate my knowledge in HTML, CSS, and JS.
 
-## Screenshot
 ![Screenshot of the game](states/memories-game-image.png)
 
-## Demo
 You can try the game by following this link: [Demo](https://crisher73.github.io/Memories-Game/)
 
 ## Features
@@ -46,9 +44,9 @@ If you would like to contribute to this project, please follow these steps:
 
 Cristina Hernández 
 
-## Licencia
+## License
 
-Este proyecto está bajo la [licencia MIT]. Puedes ver el archivo de licencia [aquí](https://opensource.org/license/mit/).
+This project is licensed under the [licencia MIT]. You can view the license file [aquí](https://opensource.org/license/mit/).
 
 ## Acknowledgments
 
