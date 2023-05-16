@@ -3,7 +3,7 @@
 This is my first project to evaluate my knowledge in HTML, CSS, and JS.
 
 ## Demo
-You can try the game by following this link: [https://crisher73.github.io]
+You can try the game by following this link: [https://crisher73.github.io/Memories-Game/]
 
 ## Features
 
