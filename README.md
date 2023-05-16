@@ -1,55 +1,50 @@
-# Memories-Game
-First project to evaluate my knowledge in HTML, CSS y JS. 
+# MEMORIES GAME
 
-
-# Nombre del Proyecto
-
-This is my first project to evaluate my knowledge in HTML. CSS and Js. 
+This is my first project to evaluate my knowledge in HTML, CSS, and JS.
 
 ## Demo
+You can try the game by following this link: [https://crisher73.github.io]
 
-[https://crisher73.github.io/Memories-Game/](URL_DEMO)
+## Features
 
-## Características
-
-- Puedes elegir si jugar con Images o Palabras
-- Veras 5 imagenes o 5 palabras y al darle emparejar, debes inidicar el orden en que te aparecieron en la pantalla. 
-- Tienes 15s para realizar el emparejamiento
-- Al validar te indica si tienes o no buena memoria. 
-
+- Choose to play with Images or Words.
+- You will see 5 images or 5 words, and when you click on "Match," you must indicate the order in which they appeared on the screen.
+- You have 15 seconds to make the matches.
+- After validation, the game will indicate if you have a good memory or not. 
 
 
-## Tecnologías utilizadas
+
+## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 
-## Capturas de pantalla
+## Screenshots
+![Screenshot of the game](images/memories-game-image.png)
 
-![Captura de pantalla 1](ruta/imagen1.png)
-![Captura de pantalla 2](ruta/imagen2.png)
+## Installation
 
-## Instalación
+1. Clone the repository: git clone REPOSITORY_URL
+2. Open the project in your code editor.
+3. Open the index.html file in your browser.
 
-1. Clona el repositorio: `git clone URL_REPOSITORIO`
-2. Abre el proyecto en tu editor de código.
-3. Abre el archivo `index.html` en tu navegador.
+## Usage
 
-## Uso
+1. Open the index.html file in your browser.
+2. Follow the instructions to play the game.
 
-1. Abre el archivo `index.html` en tu navegador.
-2. Sigue las instrucciones para jugar al juego.
-
-## Contribución
+## Contribution
 
 Si deseas contribuir a este proyecto, sigue estos pasos:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama: `git checkout -b nueva-rama`
-3. Realiza los cambios y realiza un commit: `git commit -m 'Descripción de los cambios'`
-4. Haz push a la rama creada: `git push origin nueva-rama`
-5. Crea una solicitud de extracción en el repositorio original.
+If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: git checkout -b new-branch
+3. Make the changes and commit them: git commit -m 'Description of the changes'
+4. Push the branch to your forked repository: git push origin new-branch
+5. Create a pull request in the original repository.
 
 ## Autor
 
@@ -57,8 +52,8 @@ Cristina Hernández
 
 ## Licencia
 
-Este proyecto está bajo la [licencia MIT]. Puedes ver el archivo de licencia [aquí](ruta/licencia.md).
+Este proyecto está bajo la [licencia MIT]. Puedes ver el archivo de licencia [aquí](https://opensource.org/license/mit/).
 
-## Agradecimientos
+## Acknowledgments
 
-Agradezco a [Alfredo Ortegón] por retarme a programar y desarrollar nuevas habilidades. 
+I would like to thank [Alfredo Ortegón] for challenging me to program and develop new skills.
