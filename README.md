@@ -2,8 +2,11 @@
 
 This is my first project to evaluate my knowledge in HTML, CSS, and JS.
 
+## Screenshot
+![Screenshot of the game](states/memories-game-image.png)
+
 ## Demo
-You can try the game by following this link: [https://crisher73.github.io/Memories-Game/]
+You can try the game by following this link: [Demo](https://crisher73.github.io/Memories-Game/)
 
 ## Features
 
@@ -12,38 +15,31 @@ You can try the game by following this link: [https://crisher73.github.io/Memori
 - You have 15 seconds to make the matches.
 - After validation, the game will indicate if you have a good memory or not. 
 
-
-
 ## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 
-## Screenshots
-![Screenshot of the game](images/memories-game-image.png)
-
 ## Installation
 
 1. Clone the repository: git clone REPOSITORY_URL
 2. Open the project in your code editor.
-3. Open the index.html file in your browser.
+3. Open the `index.html` file in your browser.
 
 ## Usage
 
-1. Open the index.html file in your browser.
+1. Open the `index.html` file in your browser.
 2. Follow the instructions to play the game.
 
 ## Contribution
 
-Si deseas contribuir a este proyecto, sigue estos pasos:
-
 If you would like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch: git checkout -b new-branch
-3. Make the changes and commit them: git commit -m 'Description of the changes'
-4. Push the branch to your forked repository: git push origin new-branch
+2. Create a new branch: `git checkout -b new-branch`
+3. Make the changes and commit them: `git commit -m 'Description of the changes'`
+4. Push the branch to your forked repository: `git push origin new-branch`
 5. Create a pull request in the original repository.
 
 ## Autor
@@ -56,4 +52,4 @@ Este proyecto está bajo la [licencia MIT]. Puedes ver el archivo de licencia [a
 
 ## Acknowledgments
 
-I would like to thank [Alfredo Ortegón] for challenging me to program and develop new skills.
+I would like to thank [Alorse](https://github.com/Alorse) for challenging me to program and develop new skills.
